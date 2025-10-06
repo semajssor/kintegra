@@ -1,16 +1,56 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.jsx';
+import ScrollSection from '../components/ScrollSection.jsx';
+import BlogGrid from '../components/BlogGrid.jsx';
+import fs from 'fs';
+import path from 'path';
 
+// load simple markdown posts from src/content/blog
+const postsDir = new URL('../content/blog', import.meta.url);
+const filenames = fs.readdirSync(postsDir);
+const posts = filenames.map((name) => {
+  const src = fs.readFileSync(new URL(`../content/blog/${name}`, import.meta.url), 'utf-8');
+  const titleMatch = src.match(/title:\s*(.*)/i);
+  const title = titleMatch ? titleMatch[1].trim() : name.replace('.md', '');
+  const slug = name.replace(/\.mdx?$/, '');
+  const excerptMatch = src.match(/excerpt:\s*(.*)/i);
+  const excerpt = excerptMatch ? excerptMatch[1].trim() : '';
+  return { title, slug, excerpt };
+});
 ---
+<BaseLayout>
+  <main>
+    <Hero client:load />
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+    <ScrollSection id="about" title="About">
+      <div class="container">
+        <p>
+          Kintegra — Knowledge integration & Transdisciplinary. We help organisations combine
+          expertise across domains to deliver elegant, robust solutions.
+        </p>
+      </div>
+    </ScrollSection>
+
+    <ScrollSection id="blog" title="Blog">
+      <div class="container">
+        <BlogGrid posts={posts} client:load />
+      </div>
+    </ScrollSection>
+
+    <ScrollSection id="contact" title="Contact">
+      <div class="container contact-grid">
+        <form class="contact-form">
+          <label>Name<input name="name" /></label>
+          <label>Email<input name="email" type="email" /></label>
+          <label>Message<textarea name="message"></textarea></label>
+          <button type="submit" class="btn">Send</button>
+        </form>
+        <div class="contact-info">
+          <h4>Get in touch</h4>
+          <p>hello@kintegra.example</p>
+        </div>
+      </div>
+    </ScrollSection>
+  </main>
+</BaseLayout>

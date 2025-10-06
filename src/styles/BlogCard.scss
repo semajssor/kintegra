@@ -1,0 +1,38 @@
+.card {
+   background: #141414;
+   border-radius: 8px;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   transition: transform .2s ease, box-shadow .2s ease
+}
+
+.card:hover {
+   transform: translateY(-6px);
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5)
+}
+
+.card-media {
+   height: 160px;
+   background: linear-gradient(135deg, #111, #222)
+}
+
+.card-body {
+   padding: 1rem
+}
+
+.card-body h3 {
+   margin: 0 0 .5rem
+}
+
+.excerpt {
+   color: $muted;
+   font-size: .95rem
+}
+
+.read-more {
+   margin-top: 1rem;
+   display: inline-block;
+   color: $accent;
+   text-decoration: none
+}

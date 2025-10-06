@@ -1,0 +1,13 @@
+---
+import fs from 'fs';
+import path from 'path';
+const slug = Astro.params.slug;
+const file = fs.readFileSync(new URL(`../../content/blog/${slug}.md`, import.meta.url), 'utf-8');
+const body = file.replace(/---[\s\S]*?---/, '');
+---
+<BaseLayout>
+  <article class="container">
+    <h1>{slug}</h1>
+    <div innerHTML={body} />
+  </article>
+</BaseLayout>

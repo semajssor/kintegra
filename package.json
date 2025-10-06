@@ -9,6 +9,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.14.1"
+    "@astrojs/react": "^4.4.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "astro": "^5.14.1",
+    "gsap": "^3.13.0",
+    "react": "^19.2.0",
+    "react-bricks": "^3.12.4",
+    "react-bricks-ui": "^0.5.3",
+    "react-dom": "^19.2.0",
+    "sass": "^1.93.2"
   }
 }

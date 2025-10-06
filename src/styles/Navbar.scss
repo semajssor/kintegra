@@ -1,0 +1,35 @@
+.site-nav {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   z-index: 50;
+   background: transparent;
+   padding: .8rem 0
+}
+
+.nav-inner {
+   display: flex;
+   align-items: center;
+   justify-content: space-between
+}
+
+.brand {
+   color: $white;
+   font-weight: 800;
+   letter-spacing: 2px;
+   text-decoration: none
+}
+
+.nav-links {
+   list-style: none;
+   display: flex;
+   gap: 1rem;
+   margin: 0;
+   padding: 0
+}
+
+.nav-links a {
+   color: $muted;
+   text-decoration: none
+}

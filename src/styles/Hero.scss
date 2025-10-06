@@ -1,0 +1,35 @@
+.hero {
+   position: relative;
+   height: 100vh;
+   display: flex;
+   align-items: center
+}
+
+.hero {
+   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/architecture-bg.jpg');
+   background-size: cover;
+   background-position: center
+}
+
+.overlay {
+   position: absolute;
+   inset: 0
+}
+
+.hero-content {
+   position: relative;
+   text-align: center;
+   color: $white;
+   padding: 2rem
+}
+
+.hero-content h1 {
+   font-size: 3.2rem;
+   margin: 0;
+   letter-spacing: 4px
+}
+
+.tagline {
+   margin-top: .6rem;
+   color: $accent
+}
