@@ -1,13 +1,22 @@
 ---
-import fs from 'fs';
-import path from 'path';
+import { getEntryBySlug } from "astro:content"; 
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
 const slug = Astro.params.slug;
-const file = fs.readFileSync(new URL(`../../content/blog/${slug}.md`, import.meta.url), 'utf-8');
-const body = file.replace(/---[\s\S]*?---/, '');
+
+// Assumes your content collection is named 'blog' in astro:content
+const post = await getEntryBySlug("blog", slug);
+
+if (!post) {
+	return new Response("Not Found", { status: 404 });
+}
+
+const { Content } = await post.render();
 ---
+
 <BaseLayout>
-  <article class="container">
-    <h1>{slug}</h1>
-    <div innerHTML={body} />
-  </article>
+	<article class="container">
+		<h1>{post.data.title || slug}</h1>
+		<Content />
+	</article>
 </BaseLayout>
