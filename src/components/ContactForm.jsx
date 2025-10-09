@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ContactForm.scss";
+import "../styles/ContactForm.scss";
 
 // To use, create a new form on https://formspree.io/forms and copy your form ID.
 // Example endpoint: https://formspree.io/f/yourFormId

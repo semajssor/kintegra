@@ -1,0 +1,68 @@
+// Color Palette
+$black: #0b0b0b;
+$charcoal: #1c1c1c;
+$white: #f7f7f7;
+$accent: #d0d0d0;
+$muted: #a0a0a0;
+
+// Typography
+$font-primary: 'Inter', 'Poppins', 'Neue Haas Grotesk', sans-serif;
+$font-size-base: 16px;
+$font-size-heading: 2rem;
+
+// Layout
+$max-width: 1200px;
+$section-padding: 6rem;
+
+// Global Resets
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: $font-primary;
+   font-size: $font-size-base;
+   color: $white;
+   background-color: $black;
+   line-height: 1.6;
+   -webkit-font-smoothing: antialiased;
+}
+
+a {
+   color: $accent;
+   text-decoration: none;
+   transition: color 0.2s ease;
+}
+
+a:hover {
+   color: lighten($accent, 10%);
+}
+
+img {
+   max-width: 100%;
+   display: block;
+}
+
+section {
+   padding: $section-padding 1.5rem;
+   max-width: $max-width;
+   margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-weight: 700;
+   color: $white;
+   margin-bottom: 1rem;
+}
+
+p {
+   color: $muted;
+   margin-bottom: 1rem;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import BlogCard from "./BlogCard.jsx";
-import "./BlogGrid.scss";
+import "../styles/BlogGrid.scss";
 
 /**
  * @typedef {object} Post

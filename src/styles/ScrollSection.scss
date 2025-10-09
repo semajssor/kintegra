@@ -1,9 +1,29 @@
+@use 'global' as *;
+@use 'sass:color';
+
 .scroll-section {
-   padding: 6rem 0
+   padding: 6rem 0;
+   background: $black;
+
+   &:nth-child(even) {
+      background: $charcoal;
+   }
 }
 
 .section-header h2 {
    margin: 0 0 1rem 0;
    font-size: 1.8rem;
-   color: $white
+   color: $white;
+   text-align: center;
+   position: relative;
+
+   &::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: $accent;
+      margin: 0.6rem auto 0;
+      border-radius: 2px;
+   }
 }

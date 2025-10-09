@@ -5,10 +5,9 @@ import ScrollSection from "../components/ScrollSection.jsx";
 import BlogGrid from "../components/BlogGrid.jsx";
 import fs from "fs";
 import path from "path";
-// Import the shared type from your new types file
+
 import type { Post } from "../types.d.ts";
 
-// load simple markdown posts from src/content/blog
 const postsDir = new URL("../content/blog", import.meta.url);
 const filenames = fs.readdirSync(postsDir);
 

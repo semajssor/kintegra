@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./Hero.scss";
+import "../styles/Hero.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
