@@ -3,12 +3,12 @@ import "../styles/Hero.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Hero() {
 	const root = useRef();
 
 	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+
 		const ctx = gsap.context(() => {
 			gsap.from(".hero-content", { opacity: 0, y: 40, duration: 1 });
 		}, root);
