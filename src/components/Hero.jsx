@@ -1,13 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/Hero.scss";
-import gsap from "gsap";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Hero() {
 	const root = useRef(null);
 
 	useEffect(() => {
-		// Register plugin (browser-only now)
 		gsap.registerPlugin(ScrollTrigger);
 
 		const ctx = gsap.context(() => {

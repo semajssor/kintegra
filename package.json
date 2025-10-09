@@ -1,24 +1,24 @@
 {
-  "name": "kintegra",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/mdx": "^4.3.6",
-    "@astrojs/react": "^4.4.0",
-    "@types/react": "^19.2.0",
-    "@types/react-dom": "^19.2.0",
-    "astro": "^5.14.1",
-    "gsap": "^3.13.0",
-    "react": "^19.2.0",
-    "react-bricks": "^3.12.4",
-    "react-bricks-ui": "^0.5.3",
-    "react-dom": "^19.2.0",
-    "sass": "^1.93.2"
-  }
+	"name": "kintegra",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/mdx": "^4.3.7",
+		"@astrojs/react": "^4.4.0",
+		"@types/react": "^18.2.0",
+		"@types/react-dom": "^18.2.0",
+		"astro": "^5.14.3",
+		"gsap": "^3.13.0",
+		"react": "^18.2.0",
+		"react-bricks": "^4.7.8",
+		"react-bricks-ui": "^0.5.3",
+		"react-dom": "^18.2.0",
+		"sass": "^1.93.2"
+	}
 }
