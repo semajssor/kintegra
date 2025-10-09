@@ -4,13 +4,19 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Hero() {
-	const root = useRef();
+	const root = useRef(null);
 
 	useEffect(() => {
+		// Register plugin (browser-only now)
 		gsap.registerPlugin(ScrollTrigger);
 
 		const ctx = gsap.context(() => {
-			gsap.from(".hero-content", { opacity: 0, y: 40, duration: 1 });
+			gsap.from(".hero-content", {
+				opacity: 0,
+				y: 40,
+				duration: 1,
+				ease: "power2.out",
+			});
 		}, root);
 
 		return () => ctx.revert();
@@ -21,7 +27,7 @@ export default function Hero() {
 			<div className="overlay" />
 			<div className="hero-content container">
 				<h1>Kintegra</h1>
-				<p className="tagline">Knowledge integration &amp; Transdiciplinary</p>
+				<p className="tagline">Knowledge integration &amp; Transdisciplinary</p>
 				<a className="btn" href="#about">
 					Discover More
 				</a>

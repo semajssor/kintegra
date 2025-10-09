@@ -11,16 +11,12 @@ import type { Post } from "../types.d.ts";
 const postsDir = new URL("../content/blog", import.meta.url);
 const filenames = fs.readdirSync(postsDir);
 
-// Now the 'posts' array is correctly typed:
 const posts: Post[] = filenames.map((name) => {
 	const src = fs.readFileSync(new URL(`../content/blog/${name}`, import.meta.url), "utf-8");
-	// NOTE: Your regex is looking for 'title: ...' which is simple frontmatter.
-	// This is a manual way to do it. The recommended Astro way is to use
-	// Astro.glob() or Content Collections to handle this parsing automatically.
-	const titleMatch = src.match(/title:\\s*(.*)/i);
+	const titleMatch = src.match(/title:\s*(.*)/i);
 	const title = titleMatch ? titleMatch[1].trim() : name.replace(".md", "");
-	const slug = name.replace(/\\.mdx?$/, "");
-	const excerptMatch = src.match(/excerpt:\\s*(.*)/i);
+	const slug = name.replace(/\.mdx?$/, "");
+	const excerptMatch = src.match(/excerpt:\s*(.*)/i);
 	const excerpt = excerptMatch ? excerptMatch[1].trim() : "";
 	return { title, slug, excerpt };
 });
@@ -28,7 +24,7 @@ const posts: Post[] = filenames.map((name) => {
 
 <BaseLayout>
 	<main>
-		<Hero client:load />
+		<Hero client:only="react" />
 
 		<ScrollSection id="about" title="About">
 			<div class="container">
