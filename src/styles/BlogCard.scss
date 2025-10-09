@@ -17,7 +17,7 @@
 
 .card-media {
   height: 180px;
-  background: linear-gradient(135deg, darken($charcoal, 3%), lighten($charcoal, 3%));
+  background: linear-gradient(135deg, color.adjust($charcoal, $lightness: -3%), color.adjust($charcoal, $lightness: 3%));
 }
 
 .card-body {
@@ -44,6 +44,6 @@
   transition: color 0.2s ease;
 
   &:hover {
-    color: lighten($accent, 10%);
+    color: color.adjust($accent, $lightness: 10%);
   }
 }
