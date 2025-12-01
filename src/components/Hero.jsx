@@ -1,24 +1,39 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/Hero.scss";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Hero() {
 	const root = useRef(null);
 
 	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
+		let ctx; // Déclaration de ctx en dehors du scope de la promesse
 
-		const ctx = gsap.context(() => {
-			gsap.from(".hero-content", {
-				opacity: 0,
-				y: 40,
-				duration: 1,
-				ease: "power2.out",
+		// Importation dynamique de ScrollTrigger, s'assurant qu'elle se fait
+		// UNIQUEMENT lorsque le composant est monté (côté client/navigateur)
+		import("gsap/ScrollTrigger")
+			.then((module) => {
+				const ScrollTrigger = module.ScrollTrigger;
+				gsap.registerPlugin(ScrollTrigger);
+
+				// Initialisation de gsap.context() après l'enregistrement
+				ctx = gsap.context(() => {
+					gsap.from(".hero-content", {
+						opacity: 0,
+						y: 40,
+						duration: 1,
+						ease: "power2.out",
+					});
+				}, root);
+			})
+			.catch((error) => {
+				console.error("Erreur lors du chargement de ScrollTrigger:", error);
 			});
-		}, root);
 
-		return () => ctx.revert();
+		return () => {
+			if (ctx) {
+				ctx.revert();
+			}
+		};
 	}, []);
 
 	return (
