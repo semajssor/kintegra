@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.jsx";
 import ScrollSection from "../components/ScrollSection.jsx";
 import BlogGrid from "../components/BlogGrid.jsx";
+import ContactForm from "../components/ContactForm.jsx";
 
 // Importez la fonction native d'Astro pour lire les collections
 import { getCollection } from "astro:content";
@@ -45,12 +46,12 @@ const blogPosts = posts.map((post) => ({
 
 		<ScrollSection id="contact" title="Contact">
 			<div class="container contact-grid">
-				<form class="contact-form">
+				<ContactForm class="contact-form">
 					<label>Name<input name="name" /></label>
 					<label>Email<input name="email" type="email" /></label>
 					<label>Message<textarea name="message"></textarea></label>
 					<button type="submit" class="btn">Send</button>
-				</form>
+				</ContactForm>
 				<div class="contact-info">
 					<h4>Get in touch</h4>
 					<p>hello@kintegra.example</p>
