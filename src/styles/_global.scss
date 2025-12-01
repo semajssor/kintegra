@@ -1,22 +1,30 @@
 @use 'sass:color';
 
-// Color Palette
-$black: #0b0b0b;
-$charcoal: #1c1c1c;
-$white: #f7f7f7;
-$accent: #d0d0d0;
-$muted: #a0a0a0;
+// ------------------------------------
+// 1. PALETTE SÉMANTIQUE
+// ------------------------------------
+$color-bg-root: hsl(0, 0%, 4.3%); 
+$color-bg-secondary: hsl(0, 0%, 11%);
+$color-text-root: hsl(0, 0%, 96.9%); 
+$color-text-secondary: hsl(0, 0%, 63%);
+$color-brand-primary: hsl(0, 0%, 81.6%); 
 
-// Typography
+// ------------------------------------
+// 2. TYPOGRAPHY
+// ------------------------------------
 $font-primary: 'Inter', 'Poppins', 'Neue Haas Grotesk', sans-serif;
 $font-size-base: 16px;
 $font-size-heading: 2rem;
 
-// Layout
+// ------------------------------------
+// 3. LAYOUT
+// ------------------------------------
 $max-width: 1200px;
 $section-padding: 6rem;
 
-// Global Resets
+// ------------------------------------
+// 4. GLOBAL RESETS & BASE STYLES
+// ------------------------------------
 * {
    margin: 0;
    padding: 0;
@@ -26,20 +34,21 @@ $section-padding: 6rem;
 body {
    font-family: $font-primary;
    font-size: $font-size-base;
-   color: $white;
-   background-color: $black;
+   color: $color-text-root;
+   background-color: $color-bg-root;
    line-height: 1.6;
    -webkit-font-smoothing: antialiased;
 }
 
 a {
-   color: $accent;
+   color: $color-brand-primary;
    text-decoration: none;
    transition: color 0.2s ease;
 }
 
 a:hover {
-   color: color.adjust($accent, $lightness: 10%);;
+   // Utilisation de color.adjust ou color.scale
+   color: color.adjust($color-brand-primary, $lightness: 10%);
 }
 
 img {
@@ -60,11 +69,11 @@ h4,
 h5,
 h6 {
    font-weight: 700;
-   color: $white;
+   color: $color-text-root;
    margin-bottom: 1rem;
 }
 
 p {
-   color: $muted;
+   color: $color-text-secondary;
    margin-bottom: 1rem;
 }

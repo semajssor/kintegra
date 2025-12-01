@@ -4,8 +4,8 @@
 .site-footer {
    padding: 3rem 0;
    text-align: center;
-   color: $muted;
-   border-top: 1px solid color.adjust($charcoal, $lightness: 8%);
-   background: color.adjust($black, $lightness: -2%);
+   color: $color-text-secondary; 
+   border-top: 1px solid color.scale($color-bg-secondary, $lightness: 5%);
+   background: color.scale($color-bg-root, $lightness: -2%);
    font-size: 0.9rem;
 }

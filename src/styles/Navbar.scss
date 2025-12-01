@@ -7,7 +7,7 @@
    left: 0;
    right: 0;
    z-index: 50;
-   background: rgba(12, 12, 12, 0.7);
+   background: rgba(12, 12, 12, 0.7); 
    backdrop-filter: blur(10px);
    padding: 0.8rem 0;
    transition: background 0.3s ease;
@@ -27,7 +27,7 @@
 }
 
 .brand {
-   color: $white;
+   color: $color-text-root; 
    font-weight: 800;
    letter-spacing: 2px;
    text-decoration: none;
@@ -41,13 +41,13 @@
    padding: 0;
 
    a {
-      color: $muted;
+      color: $color-text-secondary; 
       text-decoration: none;
       font-weight: 500;
       transition: color 0.2s ease;
 
       &:hover {
-         color: $accent;
+         color: $color-brand-primary;
       }
    }
 }

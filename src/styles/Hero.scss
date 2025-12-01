@@ -11,7 +11,7 @@
       url('/images/architecture-bg.jpg');
    background-size: cover;
    background-position: center;
-   color: $white;
+   color: $color-text-root;
 }
 
 .hero-content {
@@ -27,7 +27,7 @@
    }
 
    .tagline {
-      color: $accent;
+      color: $color-brand-primary;
       font-size: 1.1rem;
    }
 }
