@@ -3,12 +3,13 @@ import "../styles/ScrollSection.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function ScrollSection({ id, title, children }) {
 	const ref = useRef();
 
 	useEffect(() => {
+		// Enregistrement du plugin dans le useEffect pour éviter les erreurs côté serveur
+		gsap.registerPlugin(ScrollTrigger);
+
 		const el = ref.current;
 		const ctx = gsap.context(() => {
 			gsap.from(el.querySelectorAll(".container > *"), {
